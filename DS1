@@ -6,9 +6,9 @@
 0005.00 DMM                              2A                                     
 0006.00 DFIL2                            1A   INZ('-')                          
 0007.00 DDD                              2A                                     
-0008.00 C                   EVAL      YY=%CHAR(2023)                            
-0009.00 C                   EVAL      MM=%TRIM(%CHAR(07))                       
-0010.00 C                   EVAL      DD=%CHAR(23)                              
+0008.00 C                   EVAL      YY=%EDITC(2023:'X')                            
+0009.00 C                   EVAL      MM=%EDITC(07:'X')                      
+0010.00 C                   EVAL      DD=%EDITC(23:'X')                         
 0011.00 C     OPN           DSPLY                                               
 0012.00 C                   SETON                                        LR     
         ****************** End of data **************************************** 
