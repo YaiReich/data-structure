@@ -1,0 +1,45 @@
+Columns . . . :    6  80                  Browse                          AMITCC/QRPGLESRC
+SEU==>                                                                              TIMEDS
+FMT *   *. 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8
+*************** Beginning of data ****************************************************
+0001.00
+0002.00 DCURTIMSTP        DS
+0003.00 DCURTIMDATE               1      8S 0
+0004.00 DCURRYEAR                 1      4S 0
+0005.00 DCURRMONTH                5      6S 0
+0006.00 DCURRDAY                  7      8S 0
+0007.00 DCURRHRS                  9     10S 0
+0008.00 DCURRMINS                11     12S 0
+0009.00 DCURRSECS                13     16S 0
+0010.00
+0011.00 Dtime_is          S               z
+0012.00 Dtime_isO         S             20
+0013.00
+0014.00  * CALCULATE THE TIME FOR THE CURRENT SYSTEM DATE
+0015.00 C                   EVAL      TIME_IS=%TIMESTAMP()
+0016.00 C                   EVAL      TIME_ISO=%char(TIME_IS:*iso0)
+0017.00 C                   EVAL      CURRYEAR=%dec(%SUBST(TIMe_ISo:1:4):4:0)
+0018.00 C                   EVAL      CURRMONTH=%dec(%SUBST(TIMe_ISo:5:2):2:0)
+0019.00 C                   EVAL      CURRDAY=%dec(%SUBST(TIMe_ISo:7:2):2:0)
+0020.00 C                   EVAL      CURRHRS=%dec(%SUBST(TIMe_ISo:9:2):2:0)
+0021.00 C                   EVAL      CURRMINS=%dec(%SUBST(TIMe_ISo:11:2):2:0)
+0022.00 C                   EVAL      CURRSECS=%dec(%SUBST(TIMe_ISo:13:4):4:0)
+0023.00 C     CURTIMSTP     DSPLY
+0024.00 C     CURTIMDATE    DSPLY
+0025.00 C     CURRYEAR      DSPLY
+0026.00 C     CURRMONTH     DSPLY
+0027.00 C     CURRDAY       DSPLY
+0028.00 C     CURRHRS       DSPLY
+0029.00 C     CURRMINS      DSPLY
+0030.00 C     CURRSECS      DSPLY
+0031.00 C                   SETON                                        LR
+****************** End of data *******************************************************
+OUTPUT
+2003405802
+20
+2013
+ 1
+21
+ 3
+40
+5802
